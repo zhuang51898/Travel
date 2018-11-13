@@ -21,7 +21,7 @@ export default {
 }
 </script>
 <style lang='stylus' scoped>
-// 样式里引入样式，需要加@，可以在build下webpack.base.conf.js配置别名，简化代码。配置后需要重启
+// 使用较多的样式，可以引用变量，样式里引入样式，需要加@，可以在build下webpack.base.conf.js配置别名，简化代码。配置后需要重启
   @import '~styles/variables.styl'
   .header
     line-height: .86rem
