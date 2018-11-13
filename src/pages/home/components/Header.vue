@@ -1,6 +1,7 @@
 <template>
    <div class="header">
      <div class="header-left">
+       <!--引入iconfont，class设为iconfont，内容为iconfont里面该图标的名称-->
        <div class="iconfont back-icon">&#xe624;</div>
      </div>
      <div class="header-input">
@@ -20,6 +21,7 @@ export default {
 }
 </script>
 <style lang='stylus' scoped>
+// 样式里引入样式，需要加@，可以在build下webpack.base.conf.js配置别名，简化代码。配置后需要重启
   @import '~styles/variables.styl'
   .header
     line-height: .86rem

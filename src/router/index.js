@@ -7,6 +7,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      // 主页时显示Home组件
       path: '/',
       name: 'Home',
       component: Home
