@@ -1,5 +1,5 @@
 <template>
-  <swiper>
+  <swiper :options="swiperOption" class="swiper">
     <swiper-slide v-for="(page, index) of pages" :key="index">
       <div class="icon-list">
         <div class="icon" v-for='item of page' :key='item.id'>
@@ -17,6 +17,10 @@
 export default {
   data () {
     return {
+      swiperOption:
+      {
+        autoplay: false
+      },
       iconList: [
         {
           id: '00001',
