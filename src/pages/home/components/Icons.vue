@@ -86,6 +86,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+  @import '~styles/mixins.styl'
   .icon-list
     width: 100%
     overflow: hidden
@@ -104,6 +105,7 @@ export default {
         right: 0
         bottom: 15%
         line-height: .44rem
+        ellipsis()
       .icon-img
         position: absolute
         left: 0
