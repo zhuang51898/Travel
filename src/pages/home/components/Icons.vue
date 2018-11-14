@@ -4,9 +4,9 @@
       <div class="icon-list">
         <div class="icon" v-for='item of page' :key='item.id'>
           <div class="icon-img">
-            <img class="icon-i" :src='item.iconsrc'/>
+            <img class="icon-i" :src='item.imgUrl'/>
           </div>
-          <p class="icon-p" v-text="item.icon_p"></p>
+          <p class="icon-p" v-text="item.desc"></p>
         </div>
       </div>
     </swiper-slide>
@@ -16,59 +16,15 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    iconList: Array
+  },
   data () {
     return {
       swiperOption:
       {
         autoplay: false
-      },
-      iconList: [
-        {
-          id: '00001',
-          iconsrc: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          icon_p: '景点门票'
-        },
-        {
-          id: '00002',
-          iconsrc: 'https://img1.qunarzz.com/piao/fusion/1803/20/831d62d2e1c7be02.png',
-          icon_p: '打卡圣地'
-        },
-        {
-          id: '00003',
-          iconsrc: 'http://img1.qunarzz.com/piao/fusion/1803/f5/a963333e1fa802.png',
-          icon_p: '本地玩乐'
-        },
-        {
-          id: '00004',
-          iconsrc: 'http://img1.qunarzz.com/piao/fusion/1803/96/c70f1e85ae4a4f02.png',
-          icon_p: '自然风光'
-        },
-        {
-          id: '00005',
-          iconsrc: 'http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png',
-          icon_p: '一日游'
-        },
-        {
-          id: '00006',
-          iconsrc: 'http://img1.qunarzz.com/piao/fusion/1803/c1/6f15f887179fa002.png',
-          icon_p: '夫子庙'
-        },
-        {
-          id: '00007',
-          iconsrc: 'http://img1.qunarzz.com/piao/fusion/1803/fa/2548667cb6e902.png',
-          icon_p: '总统府'
-        },
-        {
-          id: '00008',
-          iconsrc: 'http://img1.qunarzz.com/piao/fusion/1803/97/02f5043b51b2102.png',
-          icon_p: '牛首山'
-        },
-        {
-          id: '00009',
-          iconsrc: 'http://img1.qunarzz.com/piao/fusion/1803/97/02f5043b51b2102.png',
-          icon_p: '牛首山'
-        }
-      ]
+      }
     }
   },
   computed: {
