@@ -8,10 +8,12 @@
        <span class="iconfont">&#xe632;</span>
        输入城市/景点/游玩主题
       </div>
-     <div class="header-right">
-       城市
-       <span class="iconfont arrow-down">&#xe64a;</span>
-      </div>
+      <router-link to='/city'>
+        <div class="header-right">
+          城市
+          <span class="iconfont arrow-down">&#xe64a;</span>
+        </div>
+      </router-link>
    </div>
 </template>
 
@@ -24,7 +26,7 @@ export default {
 // 使用较多的样式，可以引用变量，样式里引入样式，需要加@，可以在build下webpack.base.conf.js配置别名，简化代码。配置后需要重启
   @import '~styles/variables.styl'
   .header
-    line-height: .86rem
+    line-height: $headerHeight
     display: flex
     background-color: $bgcolor
     color: #fff
@@ -47,6 +49,7 @@ export default {
       width: 1.24rem
       float: right
       text-align: center
+      color: #fff
       .arrow-down
         font-size: .2rem
         margin-left: -.06rem
