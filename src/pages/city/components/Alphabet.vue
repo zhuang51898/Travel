@@ -20,8 +20,13 @@ export default {
   },
   data () {
     return {
-      touch: false
+      touch: false,
+      startA: '',
+      timer: ''
     }
+  },
+  updated () {
+    this.startA = this.$refs['A'][0].offsetTop
   },
   methods: {
     handleClickLetter (e) {
@@ -32,12 +37,17 @@ export default {
     },
     handletouchMove (e) {
       if (this.touch) {
-        const startA = this.$refs['A'][0].offsetTop
-        const elclientY = (e.touches[0].clientY)
-        const index = Math.floor((elclientY - startA - 79) / 20)
-        if (index >= 0 && index < this.letters.length) {
-          this.$emit('change', this.letters[index])
+        if (this.timer) {
+          clearTimeout(this.timer)
+          this.timer = ''
         }
+        this.timer = setTimeout(() => {
+          const elclientY = (e.touches[0].clientY)
+          const index = Math.floor((elclientY - this.startA - 79) / 20)
+          if (index >= 0 && index < this.letters.length) {
+            this.$emit('change', this.letters[index])
+          }
+        }, 10)
       }
     },
     handletouchEnd () {
