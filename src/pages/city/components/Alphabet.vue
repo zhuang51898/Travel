@@ -1,29 +1,19 @@
 <template>
   <ul class="list">
-      <li>A</li>
-      <li>A</li>
-      <li>A</li>
-      <li>A</li>
-      <li>A</li>
-      <li>A</li>
-      <li>A</li>
-      <li>A</li>
-      <li>A</li>
-      <li>A</li>
-      <li>A</li>
-      <li>A</li>
-      <li>A</li>
+      <li v-for='(item, key) of cities' :key="key" v-text="key"></li>
   </ul>
 </template>
 
 <script>
 export default {
-  name: 'CityAlphabet'
+  name: 'CityAlphabet',
+  props: {
+    cities: Object
+  }
 }
 </script>
 
 <style lang="stylus" scoped>
-  @import '~styles/variables.styl'
   .list
     display: flex
     flex-direction: column
@@ -32,7 +22,6 @@ export default {
     top: 1.58rem
     right: 0
     bottom: 0
-    background-color: red
     width: .4rem
     text-align: center
     line-height: .4rem
