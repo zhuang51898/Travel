@@ -55,6 +55,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+  @import '~styles/variables.styl'
   .border-topbottom
     &:before
       border-color: #ccc
@@ -66,7 +67,7 @@ export default {
   .list
     position: absolute
     overflow: hidden
-    top: 1.58rem
+    top: $headerSearchHight
     left: 0
     right: 0
     bottom: 0

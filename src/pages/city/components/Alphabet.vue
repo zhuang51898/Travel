@@ -67,12 +67,13 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+  @import '~styles/variables.styl'
   .list
     display: flex
     flex-direction: column
     justify-content: center
     position: absolute
-    top: 1.58rem
+    top: $headerSearchHight
     right: 0
     bottom: 0
     width: .4rem
