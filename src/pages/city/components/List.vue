@@ -7,7 +7,7 @@
         </div>
         <div class="list-button">
             <div class="button-wraper">
-            <div class="button">{{this.$store.state.city}}</div>
+            <div class="button">{{this.city}}</div>
             </div>
         </div>
         </div>
@@ -35,6 +35,7 @@
 
 <script>
 import Bscroll from 'better-scroll'
+import { mapState, mapActions } from 'vuex'
 export default {
   name: 'CityList',
   props: {
@@ -47,9 +48,13 @@ export default {
   },
   methods: {
     handleChangeCity (city) {
-      this.$store.dispatch('changeCity', city)
+      this.changeCity(city)
       this.$router.push('/')
-    }
+    },
+    ...mapActions(['changeCity'])
+  },
+  computed: {
+    ...mapState(['city'])
   },
   watch: {
     letter () {
