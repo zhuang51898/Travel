@@ -70,7 +70,7 @@ export default {
       .icon-img
         position: absolute
         left: 0
-        top: 0
+        top: .1rem
         right: 0
         bottom: .44rem
         .icon-i
