@@ -7,7 +7,7 @@
         </div>
         <div class="list-button">
             <div class="button-wraper">
-            <div class="button">北京</div>
+            <div class="button">{{this.$store.state.city}}</div>
             </div>
         </div>
         </div>
@@ -16,7 +16,7 @@
             热门城市
         </div>
         <div class="list-button">
-            <div class="button-wraper" v-for='item of hotCities' :key='item.id'>
+            <div class="button-wraper" v-for='item of hotCities' :key='item.id' @click='handleChangeCity(item.name)'>
               <div class="button" v-text="item.name"></div>
             </div>
         </div>
@@ -25,7 +25,7 @@
         <div class="list-title border-topbottom">
             {{key}}
         </div>
-        <div class="item-list" v-for='iteminfo of item' :key='iteminfo.id'>
+        <div class="item-list" v-for='iteminfo of item' :key='iteminfo.id' @click='handleChangeCity(iteminfo.name)'>
             <div class="item border-bottom" v-text="iteminfo.name"></div>
         </div>
         </div>
@@ -43,7 +43,13 @@ export default {
     letter: String
   },
   mounted () {
-    this.scroll = new Bscroll(this.$refs.wrapper)
+    this.scroll = new Bscroll(this.$refs.wrapper, {click: true})
+  },
+  methods: {
+    handleChangeCity (city) {
+      this.$store.dispatch('changeCity', city)
+      this.$router.push('/')
+    }
   },
   watch: {
     letter () {

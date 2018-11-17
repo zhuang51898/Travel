@@ -5,7 +5,7 @@
     </div>
     <div class="search-mark" ref="search" v-show='keyword'>
       <ul>
-        <li v-for='item of list' :key="item.id" v-text='item.name' class="search-item border-bottom"></li>
+        <li v-for='item of list' :key="item.id" v-text='item.name' class="search-item border-bottom" @click='handleChangeCity(item.name)'></li>
         <li v-show='!list.length' class="search-item">没有您要找的城市</li>
       </ul>
     </div>
@@ -26,7 +26,13 @@ export default {
     cities: Object
   },
   mounted () {
-    this.scroll = new Bscroll(this.$refs.search)
+    this.scroll = new Bscroll(this.$refs.search, {click: true})
+  },
+  methods: {
+    handleChangeCity (city) {
+      this.$store.dispatch('changeCity', city)
+      this.$router.push('/')
+    }
   },
   watch: {
     keyword () {
@@ -34,17 +40,15 @@ export default {
         this.list = []
         return
       }
-      setTimeout(() => {
-        const letters = []
-        for (let i in this.cities) {
-          this.cities[i].forEach(value => {
-            if (value.name.indexOf(this.keyword) > -1 || value.spell.indexOf(this.keyword) > -1) {
-              letters.push(value)
-            }
-          })
-        }
-        this.list = letters
-      }, 1000)
+      const letters = []
+      for (let i in this.cities) {
+        this.cities[i].forEach(value => {
+          if (value.name.indexOf(this.keyword) > -1 || value.spell.indexOf(this.keyword) > -1) {
+            letters.push(value)
+          }
+        })
+      }
+      this.list = letters
     }
   }
 }
