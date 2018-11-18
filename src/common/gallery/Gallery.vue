@@ -48,6 +48,7 @@ export default {
   .wraper >>> .swiper-container-horizontal
     overflow: inherit
   .gallery
+    z-index: 99
     position: fixed
     top: 0
     left: 0
