@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!--使用路由，控制显示哪个页面-->
-    <keep-alive>
+    <keep-alive exclude="Detail">
       <router-view/>
     </keep-alive>
   </div>

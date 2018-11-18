@@ -21,10 +21,12 @@ export default new Router({
       component: City
     },
     {
-      // 城市页时显示City组件
       path: '/detail/:id',
       name: 'Detail',
       component: Detail
     }
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })
