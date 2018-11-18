@@ -41,7 +41,7 @@ export default {
     window.addEventListener('scroll', this.handleScroll)
   },
   deactivated () {
-    window.removeEventListener('scroll', this.handleScroll) 
+    window.removeEventListener('scroll', this.handleScroll)
   }
 }
 </script>
@@ -62,6 +62,7 @@ export default {
     .header-back
         font-size: .4rem
   .header
+    z-index: 2
     position: fixed
     height: $headerHeight
     line-height: $headerHeight
