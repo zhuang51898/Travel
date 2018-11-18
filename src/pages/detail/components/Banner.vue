@@ -10,12 +10,15 @@
         <div class="banner-info-right"><span class="iconfont">&#xe617;</span>{{gallaryImgs.length}}</div>
       </div>
     </div>
-    <common-gallery :imgs='gallaryImgs' v-show='GalleryShow' @close='closeGallery'></common-gallery>
+    <common-fade>
+      <common-gallery :imgs='gallaryImgs' v-show='GalleryShow' @close='closeGallery'></common-gallery>
+    </common-fade>
   </div>
 </template>
 
 <script>
 import CommonGallery from 'common/gallery/Gallery'
+import CommonFade from 'common/fade/FadeAnimation'
 export default {
   name: 'DetailBanner',
   props: {
@@ -24,7 +27,8 @@ export default {
     gallaryImgs: Array
   },
   components: {
-    CommonGallery
+    CommonGallery,
+    CommonFade
   },
   data () {
     return {
